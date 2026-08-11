@@ -45,6 +45,26 @@ class BuildGptPromptTests(unittest.TestCase):
             self.assertEqual(len(paths), 3)
             self.assertTrue((Path(temp) / "gpt-prompt-manifest.json").exists())
 
+    def test_architecture_layers_generate_grid_and_locked_labels(self):
+        spec = {
+            "title": "护理信息化总体架构",
+            "channel": "presentation",
+            "layout": "architecture",
+            "density": "high",
+            "sections": [
+                {"layer": "临床护理应用层", "title": "护理业务", "items": ["入院评估"]},
+                {"layer": "临床护理应用层", "title": "移动护理", "items": ["床旁核验"]},
+                {"layer": "管理支撑层", "title": "质量安全", "items": ["规则质控"]},
+                {"layer": "管理支撑层", "title": "人力排班", "items": ["能级配置"]},
+            ],
+        }
+        prompt = build_gpt_prompt.build_prompt(spec, spec["sections"], 1, 1)
+        self.assertIn('层级标签："临床护理应用层"', prompt)
+        self.assertEqual(prompt.count('层级标签："临床护理应用层"'), 1)
+        self.assertIn("2 行 × 2 列网格", prompt)
+        self.assertIn("临床护理应用层：2 个模块", prompt)
+        self.assertIn("双向细箭头", prompt)
+
 
 if __name__ == "__main__":
     unittest.main()

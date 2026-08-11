@@ -16,8 +16,8 @@
   "language": "zh-CN",
   "pages": 1,
   "sections": [
-    {"title": "数据源", "items": ["HIS", "EMR", "LIS"]},
-    {"title": "治理平台", "items": ["主数据", "质量规则"]}
+    {"layer": "数据接入层", "title": "数据源", "items": ["HIS", "EMR", "LIS"]},
+    {"layer": "数据治理层", "title": "治理平台", "items": ["主数据", "质量规则"]}
   ],
   "sources": [
     {"title": "项目输入材料", "url": "", "date": "2026-08-11"}
@@ -26,6 +26,8 @@
 ```
 
 `visual_asset` 为可选本地图片路径。不要把二进制图片写入 JSON。
+
+架构图可为每个 section 增加 `layer`。同名 `layer` 会被视为同一层，按首次出现顺序生成层级标签、模块计数和网格约束。流程图、时间轴等不需要填写。
 
 `render_mode` 可取：
 

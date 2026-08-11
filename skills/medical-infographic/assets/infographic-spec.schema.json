@@ -23,6 +23,7 @@
         "required": ["title", "items"],
         "properties": {
           "title": {"type": "string"},
+          "layer": {"type": "string"},
           "items": {"type": "array", "items": {"type": ["string", "number"]}}
         }
       }

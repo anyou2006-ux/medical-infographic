@@ -15,7 +15,7 @@ description: 将医疗信息化、智慧医院、HIS、EMR、医疗 AI、医院�
 4. 遇到患者隐私或缺少来源的高风险事实时停止最终出图，说明需要删除或补充的内容。
 5. 读取 [layouts.md](references/layouts.md)，选择一种版式。只有无法可靠判断时才询问版式偏好。
 6. 读取 [channels.md](references/channels.md)，确定画布、页数、文字上限和来源区。
-7. 按 [output-schema.md](references/output-schema.md) 创建 `infographic-spec.json`。
+7. 按 [output-schema.md](references/output-schema.md) 创建 `infographic-spec.json`。架构图存在业务分层时，为每个模块填写 `layer`，不要只在自由文本中描述层级。
 8. 运行 `scripts/validate_content.py --spec <spec.json>`。状态为 `blocked` 时停止；状态为 `warning` 时只能标记为预览版。
 9. 读取 [gpt-rendering.md](references/gpt-rendering.md)，运行 `scripts/build_gpt_prompt.py <spec.json> --output-dir <dir>`，生成逐页 `gpt-prompt-*.txt`。
 10. 使用内置图像生成工具，逐页提交对应提示词；每次只生成一页。保存为 `page-*.png`，不要用 SVG 重新排版或覆盖 GPT 成图。

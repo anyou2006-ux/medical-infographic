@@ -80,6 +80,26 @@ class ValidateSpecTests(unittest.TestCase):
         result = validate_content.validate_content(text, "balanced", [{"title": "虚构示例数据"}])
         self.assertEqual(result["status"], "warning")
 
+    def test_spec_text_includes_architecture_layer(self):
+        spec = {
+            "title": "护理信息化架构",
+            "sections": [
+                {"layer": "临床护理应用层", "title": "移动护理", "items": ["床旁核验"]}
+            ],
+        }
+        text = validate_content.spec_text(spec)
+        self.assertIn("临床护理应用层", text)
+
+    def test_rejects_non_string_layer(self):
+        result = validate_content.validate_spec(
+            {
+                "title": "测试",
+                "channel": "presentation",
+                "sections": [{"layer": 1, "title": "模块", "items": []}],
+            }
+        )
+        self.assertTrue(any("layer" in item for item in result["errors"]))
+
 
 if __name__ == "__main__":
     unittest.main()

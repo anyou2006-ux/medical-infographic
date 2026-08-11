@@ -39,6 +39,7 @@ def spec_text(spec: dict[str, Any]) -> str:
     for section in spec.get("sections", []):
         if not isinstance(section, dict):
             continue
+        values.append(str(section.get("layer", "")))
         values.append(str(section.get("title", "")))
         values.extend(str(item) for item in section.get("items", []) if item is not None)
     return "\n".join(value for value in values if value.strip())
@@ -97,6 +98,8 @@ def validate_spec(spec: dict[str, Any]) -> dict[str, Any]:
         for index, section in enumerate(normalized["sections"], start=1):
             if not isinstance(section, dict) or not str(section.get("title", "")).strip():
                 errors.append(f"sections[{index}] 缺少标题。")
+            if isinstance(section, dict) and "layer" in section and not isinstance(section.get("layer"), str):
+                errors.append(f"sections[{index}].layer 必须是字符串。")
             if not isinstance(section.get("items", []), list):
                 errors.append(f"sections[{index}].items 必须是数组。")
 
