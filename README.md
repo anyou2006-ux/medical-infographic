@@ -20,7 +20,14 @@
 
 ## 在 Codex 中使用
 
-发布到 GitHub 后，可使用 `$skill-installer` 从仓库中的 `skills/medical-infographic` 目录安装。也可以将该目录复制或链接到用户级 `$HOME/.agents/skills/medical-infographic`。
+使用内置安装器从公开仓库安装：
+
+```text
+使用 $skill-installer 安装：
+https://github.com/anyou2006-ux/medical-infographic/tree/main/skills/medical-infographic
+```
+
+安装完成后，在下一次 Codex 任务中使用 `$medical-infographic` 显式调用。与医疗信息化信息图高度匹配的请求也可以隐式调用；若未出现新 Skill，重启 Codex 后重新检查。
 
 安装为 Plugin 时，使用仓库根目录的 `.codex-plugin/plugin.json`。
 
@@ -39,9 +46,13 @@ evidence_mode: balanced
 
 ```powershell
 python -m unittest discover -s tests -v
+python scripts/run_acceptance.py --output artifacts/acceptance
+python scripts/verify_install.py
 python skills/medical-infographic/scripts/validate_content.py --spec examples/specs/01-his-architecture.json
 python skills/medical-infographic/scripts/render_svg.py examples/specs/01-his-architecture.json --output-dir examples/generated/his
 ```
+
+验收范围和人工检查步骤见 [验收检查表](docs/acceptance-checklist.md)，最近一次结果见 [验收报告](docs/acceptance-report.md)。
 
 PNG 转换使用可选的 Node.js `sharp` 包：
 

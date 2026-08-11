@@ -60,6 +60,19 @@ class ValidateSpecTests(unittest.TestCase):
         )
         self.assertNotEqual(result["status"], "blocked")
 
+    def test_spec_text_includes_title_subtitle_and_sections(self):
+        spec = {
+            "title": "护理质量驾驶舱",
+            "subtitle": "示意数据，仅用于版式演示",
+            "sections": [{"title": "执行质量", "items": ["医嘱执行：示意"]}],
+        }
+        text = validate_content.spec_text(spec)
+        self.assertIn("护理质量驾驶舱", text)
+        self.assertIn("示意数据", text)
+        self.assertIn("医嘱执行", text)
+        result = validate_content.validate_content(text, "balanced", [{"title": "虚构示例数据"}])
+        self.assertEqual(result["status"], "warning")
+
 
 if __name__ == "__main__":
     unittest.main()

@@ -1,0 +1,74 @@
+[
+  {
+    "id": "wechat-structure-explicit",
+    "content_type": "structure",
+    "invocation": "explicit",
+    "prompt": "使用 $medical-infographic，把医院数据治理内容制作成微信公众号长图，展示数据源、交换、标准、质量、主数据和应用层。",
+    "fixture": "examples/specs/02-data-governance-architecture.json",
+    "expected": {"channel": "wechat-long", "layout": "architecture", "status": "pass"}
+  },
+  {
+    "id": "wechat-process-implicit",
+    "content_type": "process",
+    "invocation": "implicit",
+    "prompt": "把住院药品管理流程制作成适合微信公众号传播的医疗信息化长图，并保留来源区。",
+    "fixture": "examples/specs/04-medication-workflow.json",
+    "expected": {"channel": "wechat-long", "layout": "workflow", "status": "pass"}
+  },
+  {
+    "id": "wechat-decision-explicit",
+    "content_type": "decision",
+    "invocation": "explicit",
+    "prompt": "使用 $medical-infographic，将医院运营示意指标制作成微信公众号驾驶舱长图，所有数据必须标记为示意。",
+    "fixture": "examples/specs/09-operations-dashboard.json",
+    "expected": {"channel": "wechat-long", "layout": "dashboard", "status": "warning"}
+  },
+  {
+    "id": "xhs-structure-implicit",
+    "content_type": "structure",
+    "invocation": "implicit",
+    "prompt": "把智慧病房的终端、网络、平台和服务内容制作成 5 页小红书医疗信息图。",
+    "fixture": "examples/specs/11-smart-ward-anatomy.json",
+    "expected": {"channel": "xhs-cards", "layout": "anatomy", "status": "pass"}
+  },
+  {
+    "id": "xhs-process-explicit",
+    "content_type": "process",
+    "invocation": "explicit",
+    "prompt": "使用 $medical-infographic，把门诊预约、签到、诊疗、检查、缴费和随访流程制作成 6 页小红书卡片。",
+    "fixture": "examples/specs/03-outpatient-workflow.json",
+    "expected": {"channel": "xhs-cards", "layout": "workflow", "status": "pass"}
+  },
+  {
+    "id": "xhs-decision-implicit",
+    "content_type": "decision",
+    "invocation": "implicit",
+    "prompt": "制作 4 页小红书医疗系统选型对比信息图，对比业务、技术、实施和服务维度。",
+    "fixture": "examples/specs/08-system-selection-matrix.json",
+    "expected": {"channel": "xhs-cards", "layout": "matrix", "status": "pass"}
+  },
+  {
+    "id": "presentation-structure-explicit",
+    "content_type": "structure",
+    "invocation": "explicit",
+    "prompt": "使用 $medical-infographic，把 HIS 核心模块关系制作成 16:9 医疗信息化架构图，用于 PPT 展示。",
+    "fixture": "examples/specs/01-his-architecture.json",
+    "expected": {"channel": "presentation", "layout": "architecture", "status": "pass"}
+  },
+  {
+    "id": "presentation-process-implicit",
+    "content_type": "process",
+    "invocation": "implicit",
+    "prompt": "把医疗信息化发展阶段制作成 16:9 时间轴信息图，适合电脑和 PPT 展示。",
+    "fixture": "examples/specs/05-health-it-timeline.json",
+    "expected": {"channel": "presentation", "layout": "timeline", "status": "pass"}
+  },
+  {
+    "id": "presentation-decision-explicit",
+    "content_type": "decision",
+    "invocation": "explicit",
+    "prompt": "使用 $medical-infographic，把护理质量示意指标制作成 16:9 驾驶舱，明确标注为示意数据。",
+    "fixture": "examples/specs/10-nursing-dashboard.json",
+    "expected": {"channel": "presentation", "layout": "dashboard", "status": "warning"}
+  }
+]

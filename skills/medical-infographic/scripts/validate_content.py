@@ -32,6 +32,17 @@ HIGH_RISK = re.compile(
 ILLUSTRATIVE = re.compile(r"示意数据|示例数据|仅用于(?:版式|演示)|虚构数据")
 
 
+def spec_text(spec: dict[str, Any]) -> str:
+    """Collect all human-visible spec text for privacy and evidence checks."""
+    values = [str(spec.get("title", "")), str(spec.get("subtitle", ""))]
+    for section in spec.get("sections", []):
+        if not isinstance(section, dict):
+            continue
+        values.append(str(section.get("title", "")))
+        values.extend(str(item) for item in section.get("items", []) if item is not None)
+    return "\n".join(value for value in values if value.strip())
+
+
 def _result(errors: list[str], warnings: list[str], normalized: dict[str, Any] | None = None) -> dict[str, Any]:
     status = "blocked" if errors else ("warning" if warnings else "pass")
     result: dict[str, Any] = {"status": status, "errors": errors, "warnings": warnings}
@@ -130,7 +141,7 @@ def main() -> int:
         spec = json.loads(args.spec.read_text(encoding="utf-8"))
         result = validate_spec(spec)
         if result["status"] != "blocked":
-            content = args.text or json.dumps(spec.get("sections", []), ensure_ascii=False)
+            content = args.text or spec_text(spec)
             content_result = validate_content(content, spec.get("evidence_mode", "balanced"), spec.get("sources", []))
             result["errors"].extend(content_result["errors"])
             result["warnings"].extend(content_result["warnings"])
