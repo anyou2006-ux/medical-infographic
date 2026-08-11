@@ -1,0 +1,67 @@
+{
+  "status": "pass",
+  "errors": [],
+  "warnings": [],
+  "normalized": {
+    "title": "门诊服务流程",
+    "subtitle": "患者服务与业务系统衔接",
+    "channel": "xhs-cards",
+    "layout": "workflow",
+    "density": "standard",
+    "theme": "clinical-green",
+    "evidence_mode": "balanced",
+    "language": "zh-CN",
+    "pages": 6,
+    "sections": [
+      {
+        "title": "预约挂号",
+        "items": [
+          "渠道统一",
+          "号源管理"
+        ]
+      },
+      {
+        "title": "到院签到",
+        "items": [
+          "身份确认",
+          "候诊队列"
+        ]
+      },
+      {
+        "title": "诊间服务",
+        "items": [
+          "病历记录",
+          "医嘱开立"
+        ]
+      },
+      {
+        "title": "检查检验",
+        "items": [
+          "预约执行",
+          "结果回传"
+        ]
+      },
+      {
+        "title": "缴费取药",
+        "items": [
+          "费用结算",
+          "处方调剂"
+        ]
+      },
+      {
+        "title": "随访服务",
+        "items": [
+          "复诊提醒",
+          "健康教育"
+        ]
+      }
+    ],
+    "sources": [
+      {
+        "title": "示例输入材料",
+        "url": "",
+        "date": "2026-08-11"
+      }
+    ]
+  }
+}

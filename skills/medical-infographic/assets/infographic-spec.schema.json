@@ -1,0 +1,43 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/medical-infographic/infographic-spec.schema.json",
+  "title": "Medical Infographic Spec",
+  "type": "object",
+  "required": ["title", "channel", "sections"],
+  "properties": {
+    "title": {"type": "string", "minLength": 1},
+    "subtitle": {"type": "string"},
+    "channel": {"enum": ["wechat-long", "xhs-cards", "presentation"]},
+    "layout": {"enum": ["auto", "architecture", "workflow", "timeline", "matrix", "dashboard", "anatomy"]},
+    "density": {"enum": ["standard", "high"]},
+    "theme": {"enum": ["medical-blue", "clinical-green", "dark-tech", "custom"]},
+    "evidence_mode": {"enum": ["strict", "balanced", "source-only"]},
+    "language": {"const": "zh-CN"},
+    "pages": {"oneOf": [{"const": "auto"}, {"type": "integer", "minimum": 1, "maximum": 10}]},
+    "visual_asset": {"type": "string"},
+    "sections": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["title", "items"],
+        "properties": {
+          "title": {"type": "string"},
+          "items": {"type": "array", "items": {"type": ["string", "number"]}}
+        }
+      }
+    },
+    "sources": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["title"],
+        "properties": {
+          "title": {"type": "string"},
+          "url": {"type": "string"},
+          "date": {"type": "string"}
+        }
+      }
+    }
+  },
+  "additionalProperties": true
+}

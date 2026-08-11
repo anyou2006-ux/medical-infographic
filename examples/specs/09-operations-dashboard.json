@@ -1,0 +1,20 @@
+{
+  "title": "医院运营指标驾驶舱",
+  "subtitle": "示意数据，仅用于版式演示",
+  "channel": "wechat-long",
+  "layout": "dashboard",
+  "density": "high",
+  "theme": "dark-tech",
+  "evidence_mode": "balanced",
+  "language": "zh-CN",
+  "pages": 1,
+  "sections": [
+    {"title": "服务量", "items": ["门诊人次：示意", "出院人次：示意"]},
+    {"title": "运行效率", "items": ["床位使用：示意", "平均住院日：示意"]},
+    {"title": "资源使用", "items": ["设备利用：示意", "手术间使用：示意"]},
+    {"title": "成本结构", "items": ["药品：示意", "耗材：示意"]},
+    {"title": "患者服务", "items": ["等候时间：示意", "反馈数量：示意"]},
+    {"title": "风险提示", "items": ["阈值告警：示意", "异常趋势：示意"]}
+  ],
+  "sources": [{"title": "虚构示例数据", "url": "", "date": "2026-08-11"}]
+}

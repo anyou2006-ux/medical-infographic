@@ -1,0 +1,10 @@
+{
+  "status": "pass",
+  "errors": [],
+  "warnings": [],
+  "evidence_checked": true,
+  "privacy_checked": true,
+  "layout_checked": true,
+  "render_mode": "svg",
+  "files_checked": 1
+}

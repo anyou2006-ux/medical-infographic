@@ -1,0 +1,18 @@
+{
+  "title": "医疗数据标准对比",
+  "subtitle": "按用途和交换方式组织",
+  "channel": "presentation",
+  "layout": "matrix",
+  "density": "high",
+  "theme": "medical-blue",
+  "evidence_mode": "balanced",
+  "language": "zh-CN",
+  "pages": 1,
+  "sections": [
+    {"title": "消息交换", "items": ["适用范围", "消息结构", "实施边界"]},
+    {"title": "文档交换", "items": ["文档结构", "临床语义", "归档方式"]},
+    {"title": "资源 API", "items": ["资源模型", "接口方式", "版本管理"]},
+    {"title": "影像通信", "items": ["影像对象", "传输服务", "显示一致性"]}
+  ],
+  "sources": [{"title": "示例输入材料", "url": "", "date": "2026-08-11"}]
+}

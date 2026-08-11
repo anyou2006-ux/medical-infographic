@@ -1,0 +1,65 @@
+{
+  "status": "pass",
+  "errors": [],
+  "warnings": [],
+  "normalized": {
+    "title": "HIS 核心模块架构",
+    "subtitle": "业务、数据与集成关系",
+    "channel": "presentation",
+    "layout": "architecture",
+    "density": "standard",
+    "theme": "medical-blue",
+    "evidence_mode": "balanced",
+    "language": "zh-CN",
+    "pages": 1,
+    "sections": [
+      {
+        "title": "门诊管理",
+        "items": [
+          "挂号分诊",
+          "门诊医嘱",
+          "诊间结算"
+        ]
+      },
+      {
+        "title": "住院管理",
+        "items": [
+          "入出转",
+          "住院医嘱",
+          "费用管理"
+        ]
+      },
+      {
+        "title": "药品管理",
+        "items": [
+          "药库",
+          "药房",
+          "处方调剂"
+        ]
+      },
+      {
+        "title": "护理管理",
+        "items": [
+          "护理记录",
+          "执行单",
+          "床位管理"
+        ]
+      },
+      {
+        "title": "数据服务",
+        "items": [
+          "主数据",
+          "数据交换",
+          "运营分析"
+        ]
+      }
+    ],
+    "sources": [
+      {
+        "title": "示例输入材料",
+        "url": "",
+        "date": "2026-08-11"
+      }
+    ]
+  }
+}

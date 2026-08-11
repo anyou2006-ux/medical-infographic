@@ -1,0 +1,20 @@
+{
+  "title": "智慧病房功能解剖",
+  "subtitle": "设备、网络与护理应用",
+  "channel": "xhs-cards",
+  "layout": "anatomy",
+  "density": "standard",
+  "theme": "medical-blue",
+  "evidence_mode": "balanced",
+  "language": "zh-CN",
+  "pages": 5,
+  "sections": [
+    {"title": "智慧病房", "items": ["患者", "护理", "设备"]},
+    {"title": "床旁终端", "items": ["呼叫", "宣教"]},
+    {"title": "生命体征", "items": ["采集", "预警"]},
+    {"title": "输液监测", "items": ["滴速", "余量"]},
+    {"title": "物联网关", "items": ["接入", "转发"]},
+    {"title": "护士站", "items": ["任务", "预警"]}
+  ],
+  "sources": [{"title": "示例输入材料", "url": "", "date": "2026-08-11"}]
+}

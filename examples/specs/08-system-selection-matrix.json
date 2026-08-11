@@ -1,0 +1,18 @@
+{
+  "title": "医院系统选型矩阵",
+  "subtitle": "不包含厂商排名与市场份额",
+  "channel": "xhs-cards",
+  "layout": "matrix",
+  "density": "standard",
+  "theme": "dark-tech",
+  "evidence_mode": "strict",
+  "language": "zh-CN",
+  "pages": 4,
+  "sections": [
+    {"title": "业务适配", "items": ["功能覆盖", "流程灵活性"]},
+    {"title": "技术架构", "items": ["扩展能力", "接口标准"]},
+    {"title": "实施服务", "items": ["项目方法", "本地支持"]},
+    {"title": "安全合规", "items": ["身份权限", "审计追踪"]}
+  ],
+  "sources": [{"title": "示例输入材料", "url": "", "date": "2026-08-11"}]
+}

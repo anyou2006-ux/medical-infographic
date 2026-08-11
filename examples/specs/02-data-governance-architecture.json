@@ -1,0 +1,20 @@
+{
+  "title": "医院数据治理架构",
+  "subtitle": "从业务系统到数据应用",
+  "channel": "wechat-long",
+  "layout": "architecture",
+  "density": "high",
+  "theme": "dark-tech",
+  "evidence_mode": "balanced",
+  "language": "zh-CN",
+  "pages": 1,
+  "sections": [
+    {"title": "数据源", "items": ["HIS", "EMR", "LIS", "PACS", "HRP"]},
+    {"title": "采集交换", "items": ["接口服务", "消息队列", "批量同步"]},
+    {"title": "标准管理", "items": ["术语字典", "数据元", "值域"]},
+    {"title": "质量管理", "items": ["完整性", "一致性", "及时性"]},
+    {"title": "主数据", "items": ["患者主索引", "组织人员", "科室床位"]},
+    {"title": "数据应用", "items": ["运营分析", "科研服务", "监管报送"]}
+  ],
+  "sources": [{"title": "示例输入材料", "url": "", "date": "2026-08-11"}]
+}

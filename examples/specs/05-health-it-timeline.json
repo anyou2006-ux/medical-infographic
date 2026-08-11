@@ -1,0 +1,19 @@
+{
+  "title": "医疗信息化演进时间轴",
+  "subtitle": "示例阶段，不代表统一行业年份",
+  "channel": "presentation",
+  "layout": "timeline",
+  "density": "standard",
+  "theme": "dark-tech",
+  "evidence_mode": "source-only",
+  "language": "zh-CN",
+  "pages": 1,
+  "sections": [
+    {"title": "业务电子化", "items": ["收费", "药品", "住院"]},
+    {"title": "临床数字化", "items": ["电子病历", "医嘱执行"]},
+    {"title": "系统集成", "items": ["集成平台", "统一身份"]},
+    {"title": "数据治理", "items": ["标准", "质量", "主数据"]},
+    {"title": "智能应用", "items": ["运营分析", "辅助决策"]}
+  ],
+  "sources": [{"title": "示例输入材料", "url": "", "date": "2026-08-11"}]
+}

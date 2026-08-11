@@ -1,0 +1,18 @@
+{
+  "title": "护理质量驾驶舱",
+  "subtitle": "示意数据，仅用于版式演示",
+  "channel": "presentation",
+  "layout": "dashboard",
+  "density": "standard",
+  "theme": "clinical-green",
+  "evidence_mode": "balanced",
+  "language": "zh-CN",
+  "pages": 1,
+  "sections": [
+    {"title": "人员配置", "items": ["排班覆盖：示意", "工作负荷：示意"]},
+    {"title": "执行质量", "items": ["医嘱执行：示意", "核对记录：示意"]},
+    {"title": "安全事件", "items": ["跌倒事件：示意", "用药事件：示意"]},
+    {"title": "持续改进", "items": ["问题整改：示意", "培训完成：示意"]}
+  ],
+  "sources": [{"title": "虚构示例数据", "url": "", "date": "2026-08-11"}]
+}

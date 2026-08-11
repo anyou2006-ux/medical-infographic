@@ -1,0 +1,26 @@
+{
+  "name": "medical-infographic",
+  "version": "0.1.0",
+  "description": "Create verified, editable healthcare IT infographics for WeChat, Xiaohongshu, and presentations.",
+  "author": {
+    "name": "medical-infographic contributors"
+  },
+  "license": "MIT",
+  "keywords": ["healthcare-it", "infographic", "wechat", "xiaohongshu", "svg"],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "医疗信息化信息图",
+    "shortDescription": "将医疗信息化内容制作成可核验、可编辑的多渠道信息图。",
+    "longDescription": "分析医疗信息化内容，检查隐私与高风险事实，生成微信公众号长图、小红书卡片和 16:9 展示信息图。视觉素材由图像工具生成，文字、数字和图表由 SVG 精确排版。",
+    "developerName": "medical-infographic contributors",
+    "category": "Productivity",
+    "capabilities": ["Interactive", "Write"],
+    "defaultPrompt": [
+      "把这篇医疗信息化文章制作成微信公众号长图。",
+      "将以下智慧医院内容制作成 6 页小红书信息图。",
+      "把医院数据治理方案制作成 16:9 架构图。"
+    ],
+    "brandColor": "#1769AA"
+  }
+}
+

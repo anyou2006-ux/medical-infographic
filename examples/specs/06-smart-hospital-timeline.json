@@ -1,0 +1,19 @@
+{
+  "title": "智慧医院建设阶段",
+  "subtitle": "用于路线设计的示例结构",
+  "channel": "xhs-cards",
+  "layout": "timeline",
+  "density": "standard",
+  "theme": "clinical-green",
+  "evidence_mode": "source-only",
+  "language": "zh-CN",
+  "pages": 5,
+  "sections": [
+    {"title": "现状评估", "items": ["系统清单", "问题清单"]},
+    {"title": "基础完善", "items": ["网络", "安全", "主数据"]},
+    {"title": "流程优化", "items": ["患者服务", "临床业务"]},
+    {"title": "数据应用", "items": ["运营管理", "质量管理"]},
+    {"title": "持续改进", "items": ["指标复查", "版本迭代"]}
+  ],
+  "sources": [{"title": "示例输入材料", "url": "", "date": "2026-08-11"}]
+}

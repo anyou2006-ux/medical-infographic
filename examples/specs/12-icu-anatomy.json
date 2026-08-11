@@ -1,0 +1,20 @@
+{
+  "title": "ICU 数据汇聚解剖",
+  "subtitle": "设备数据到临床应用",
+  "channel": "wechat-long",
+  "layout": "anatomy",
+  "density": "high",
+  "theme": "dark-tech",
+  "evidence_mode": "balanced",
+  "language": "zh-CN",
+  "pages": 1,
+  "sections": [
+    {"title": "数据汇聚中枢", "items": ["采集", "标准化", "存储"]},
+    {"title": "监护设备", "items": ["监护仪", "呼吸机"]},
+    {"title": "检验设备", "items": ["血气", "床旁检验"]},
+    {"title": "临床系统", "items": ["医嘱", "护理记录"]},
+    {"title": "预警服务", "items": ["规则", "通知"]},
+    {"title": "远程协作", "items": ["会诊", "波形共享"]}
+  ],
+  "sources": [{"title": "示例输入材料", "url": "", "date": "2026-08-11"}]
+}
