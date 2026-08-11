@@ -15,6 +15,7 @@ LAYOUTS = {"auto", "architecture", "workflow", "timeline", "matrix", "dashboard"
 DENSITIES = {"standard", "high"}
 THEMES = {"medical-blue", "clinical-green", "dark-tech", "custom"}
 EVIDENCE_MODES = {"strict", "balanced", "source-only"}
+RENDER_MODES = {"gpt-only", "hybrid", "svg"}
 
 PRIVACY_PATTERNS = {
     "患者姓名": re.compile(r"(?:患者姓名|姓名)\s*[：:]\s*[\u4e00-\u9fff·]{2,8}"),
@@ -64,6 +65,7 @@ def validate_spec(spec: dict[str, Any]) -> dict[str, Any]:
         errors.append(f"channel 必须是以下值之一：{', '.join(sorted(CHANNELS))}。")
 
     normalized.setdefault("layout", "auto")
+    normalized.setdefault("render_mode", "gpt-only")
     normalized.setdefault("density", "standard")
     normalized.setdefault("theme", "medical-blue")
     normalized.setdefault("evidence_mode", "balanced")
@@ -74,6 +76,8 @@ def validate_spec(spec: dict[str, Any]) -> dict[str, Any]:
 
     if normalized["layout"] not in LAYOUTS:
         errors.append(f"layout 不受支持：{normalized['layout']}。")
+    if normalized["render_mode"] not in RENDER_MODES:
+        errors.append(f"render_mode 不受支持：{normalized['render_mode']}。")
     if normalized["density"] not in DENSITIES:
         errors.append(f"density 不受支持：{normalized['density']}。")
     if normalized["theme"] not in THEMES:

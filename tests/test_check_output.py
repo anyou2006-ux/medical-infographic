@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import tempfile
 import unittest
+import struct
 from pathlib import Path
 
 from tests._loader import load_script
@@ -11,6 +12,10 @@ check_output = load_script("check_output")
 
 
 class CheckOutputTests(unittest.TestCase):
+    @staticmethod
+    def write_png_header(path: Path, width: int, height: int) -> None:
+        path.write_bytes(b"\x89PNG\r\n\x1a\n" + b"\x00\x00\x00\rIHDR" + struct.pack(">II", width, height))
+
     def test_pass_report(self):
         with tempfile.TemporaryDirectory() as temp:
             svg = Path(temp) / "page-01.svg"
@@ -37,7 +42,21 @@ class CheckOutputTests(unittest.TestCase):
         self.assertEqual(report["status"], "blocked")
         self.assertFalse(report["privacy_checked"])
 
+    def test_gpt_png_requires_visual_review(self):
+        with tempfile.TemporaryDirectory() as temp:
+            png = Path(temp) / "page-01.png"
+            self.write_png_header(png, 1920, 1080)
+            spec = {
+                "channel": "presentation",
+                "render_mode": "gpt-only",
+                "sources": [{"title": "材料"}],
+            }
+            preview = check_output.check_outputs(spec, [png], {"status": "pass"})
+            self.assertEqual(preview["status"], "warning")
+            final = check_output.check_outputs(spec, [png], {"status": "pass"}, visual_reviewed=True)
+            self.assertEqual(final["status"], "pass")
+            self.assertEqual(final["render_mode"], "gpt-only")
+
 
 if __name__ == "__main__":
     unittest.main()
-

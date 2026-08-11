@@ -1,6 +1,6 @@
 # Medical Infographic
 
-`medical-infographic` 是面向 Codex 的医疗信息化信息图 Skill 与 Plugin。它将内容核验、图像素材和确定性 SVG 排版组合起来，生成适用于微信公众号、小红书和电脑/PPT 的可编辑信息图。
+`medical-infographic` 是面向 Codex 的医疗信息化信息图 Skill 与 Plugin。它先完成事实与隐私核验，再生成完整逐页提示词，由 GPT 直接输出适用于微信公众号、小红书和电脑/PPT 的成品信息图。
 
 ## 效果预览
 
@@ -38,6 +38,7 @@ https://github.com/anyou2006-ux/medical-infographic/tree/main/skills/medical-inf
 channel: xhs-cards
 layout: architecture
 evidence_mode: balanced
+render_mode: gpt-only
 
 内容：……
 ```
@@ -49,14 +50,15 @@ python -m unittest discover -s tests -v
 python scripts/run_acceptance.py --output artifacts/acceptance
 python scripts/verify_install.py --source skills/medical-infographic
 python skills/medical-infographic/scripts/validate_content.py --spec examples/specs/01-his-architecture.json
-python skills/medical-infographic/scripts/render_svg.py examples/specs/01-his-architecture.json --output-dir examples/generated/his
+python skills/medical-infographic/scripts/build_gpt_prompt.py examples/specs/01-his-architecture.json --output-dir artifacts/his
 ```
 
 验收范围和人工检查步骤见 [验收检查表](docs/acceptance-checklist.md)，最近一次结果见 [验收报告](docs/acceptance-report.md)。
 
-PNG 转换使用可选的 Node.js `sharp` 包：
+GPT 图像工具不可用或用户明确要求 SVG 时，才使用降级渲染：
 
 ```powershell
+python skills/medical-infographic/scripts/render_svg.py examples/specs/01-his-architecture.json --output-dir examples/generated/his
 node skills/medical-infographic/scripts/render_png.cjs examples/generated/his/page-01.svg examples/generated/his/page-01.png
 ```
 

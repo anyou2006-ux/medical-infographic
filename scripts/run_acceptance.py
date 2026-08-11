@@ -52,6 +52,7 @@ def run_suite(cases_path: Path, output_dir: Path) -> dict[str, Any]:
     output_dir = Path(output_dir).resolve()
     cases = json.loads(cases_path.read_text(encoding="utf-8"))
     validator = load_module("validate_content")
+    prompt_builder = load_module("build_gpt_prompt")
     renderer = load_module("render_svg")
     checker = load_module("check_output")
     output_dir.mkdir(parents=True, exist_ok=True)
@@ -65,8 +66,12 @@ def run_suite(cases_path: Path, output_dir: Path) -> dict[str, Any]:
         content_report = combined_validation(spec, validator)
         write_json(case_dir / "content-report.json", content_report)
 
+        prompt_paths: list[Path] = []
         svg_paths: list[Path] = []
         if content_report["status"] != "blocked":
+            prompt_paths = prompt_builder.write_prompts(spec, case_dir)
+            # Offline acceptance keeps exercising the explicit SVG fallback;
+            # live GPT image generation is verified through real-use visual review.
             svg_paths = renderer.render_infographic(spec, case_dir, THEMES)
         quality_report = checker.check_outputs(spec, svg_paths, content_report)
         write_json(case_dir / "quality-report.json", quality_report)
@@ -80,6 +85,7 @@ def run_suite(cases_path: Path, output_dir: Path) -> dict[str, Any]:
                 "expected": expected,
                 "actual": actual,
                 "passed": actual == expected,
+                "prompt_files": len(prompt_paths),
                 "svg_files": len(svg_paths),
             }
         )

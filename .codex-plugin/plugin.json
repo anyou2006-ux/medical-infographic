@@ -1,17 +1,17 @@
 {
   "name": "medical-infographic",
-  "version": "0.1.0",
-  "description": "Create verified, editable healthcare IT infographics for WeChat, Xiaohongshu, and presentations.",
+  "version": "0.2.0",
+  "description": "Create verified GPT-rendered healthcare IT infographics for WeChat, Xiaohongshu, and presentations.",
   "author": {
     "name": "medical-infographic contributors"
   },
   "license": "MIT",
-  "keywords": ["healthcare-it", "infographic", "wechat", "xiaohongshu", "svg"],
+  "keywords": ["healthcare-it", "infographic", "wechat", "xiaohongshu", "gpt-image"],
   "skills": "./skills/",
   "interface": {
     "displayName": "医疗信息化信息图",
-    "shortDescription": "将医疗信息化内容制作成可核验、可编辑的多渠道信息图。",
-    "longDescription": "分析医疗信息化内容，检查隐私与高风险事实，生成微信公众号长图、小红书卡片和 16:9 展示信息图。视觉素材由图像工具生成，文字、数字和图表由 SVG 精确排版。",
+    "shortDescription": "让 GPT 直接生成经过核验的多渠道医疗信息图。",
+    "longDescription": "分析医疗信息化内容，检查隐私与高风险事实，生成锁定全部可见文字的逐页提示词，再由 GPT 直接输出微信公众号长图、小红书卡片和 16:9 展示信息图。SVG 仅作为显式降级路径。",
     "developerName": "medical-infographic contributors",
     "category": "Productivity",
     "capabilities": ["Interactive", "Write"],
@@ -23,4 +23,3 @@
     "brandColor": "#1769AA"
   }
 }
-

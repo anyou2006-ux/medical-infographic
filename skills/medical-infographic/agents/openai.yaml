@@ -1,8 +1,7 @@
 interface:
   display_name: "医疗信息化信息图"
-  short_description: "将医疗信息化内容制作成经过核验且可编辑的多渠道专业信息图"
+  short_description: "让 GPT 直接生成经过核验的多渠道医疗信息图"
   brand_color: "#1769AA"
-  default_prompt: "Use $medical-infographic to turn this healthcare IT content into a verified infographic."
+  default_prompt: "Use $medical-infographic to turn this healthcare IT content into a verified GPT-rendered infographic."
 policy:
   allow_implicit_invocation: true
-

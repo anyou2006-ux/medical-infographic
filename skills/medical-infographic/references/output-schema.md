@@ -7,6 +7,7 @@
 ```json
 {
   "title": "医院数据治理架构",
+  "render_mode": "gpt-only",
   "channel": "presentation",
   "layout": "architecture",
   "density": "standard",
@@ -26,3 +27,8 @@
 
 `visual_asset` 为可选本地图片路径。不要把二进制图片写入 JSON。
 
+`render_mode` 可取：
+
+- `gpt-only`：默认。GPT 根据完整提示词直接生成整页 PNG。
+- `hybrid`：显式降级。AI 视觉背景加 SVG 信息层。
+- `svg`：显式降级。纯 SVG 输出。

@@ -7,6 +7,7 @@
   "properties": {
     "title": {"type": "string", "minLength": 1},
     "subtitle": {"type": "string"},
+    "render_mode": {"enum": ["gpt-only", "hybrid", "svg"]},
     "channel": {"enum": ["wechat-long", "xhs-cards", "presentation"]},
     "layout": {"enum": ["auto", "architecture", "workflow", "timeline", "matrix", "dashboard", "anatomy"]},
     "density": {"enum": ["standard", "high"]},

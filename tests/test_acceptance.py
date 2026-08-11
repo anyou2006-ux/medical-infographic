@@ -74,6 +74,7 @@ class AcceptanceCaseTests(unittest.TestCase):
                 case_dir = Path(temp) / case["id"]
                 self.assertTrue((case_dir / "content-report.json").is_file())
                 self.assertTrue((case_dir / "quality-report.json").is_file())
+                self.assertTrue(list(case_dir.glob("gpt-prompt-*.txt")))
                 self.assertTrue(list(case_dir.glob("page-*.svg")))
 
     def test_install_verifier_accepts_complete_skill(self):

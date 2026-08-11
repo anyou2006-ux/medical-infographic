@@ -23,6 +23,13 @@ class ValidateSpecTests(unittest.TestCase):
         result = validate_content.validate_spec(spec)
         self.assertEqual(result["status"], "pass")
         self.assertEqual(result["errors"], [])
+        self.assertEqual(result["normalized"]["render_mode"], "gpt-only")
+
+    def test_rejects_unknown_render_mode(self):
+        result = validate_content.validate_spec(
+            {"title": "测试", "channel": "presentation", "render_mode": "canvas"}
+        )
+        self.assertTrue(any("render_mode" in item for item in result["errors"]))
 
     def test_rejects_unknown_channel(self):
         result = validate_content.validate_spec({"title": "测试", "channel": "poster"})
