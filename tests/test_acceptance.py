@@ -81,10 +81,23 @@ class AcceptanceCaseTests(unittest.TestCase):
         with tempfile.TemporaryDirectory() as temp:
             installed = Path(temp) / "medical-infographic"
             shutil.copytree(ROOT / "skills" / "medical-infographic", installed)
-            report = verifier.verify_install(installed)
+            source = ROOT / "skills" / "medical-infographic"
+            report = verifier.verify_install(installed, source=source)
             self.assertEqual(report["status"], "pass")
             self.assertEqual(report["skill_name"], "medical-infographic")
             self.assertGreaterEqual(report["files_checked"], 10)
+            self.assertTrue(report["source_match"])
+
+            skill_md = installed / "SKILL.md"
+            skill_md.write_text(skill_md.read_text(encoding="utf-8").replace("\n", "\r\n"), encoding="utf-8", newline="")
+            line_endings = verifier.verify_install(installed, source=source)
+            self.assertEqual(line_endings["status"], "pass")
+            self.assertTrue(line_endings["source_match"])
+
+            (installed / "scripts" / "validate_content.py").write_text("changed", encoding="utf-8")
+            changed = verifier.verify_install(installed, source=source)
+            self.assertEqual(changed["status"], "failed")
+            self.assertFalse(changed["source_match"])
 
 
 if __name__ == "__main__":

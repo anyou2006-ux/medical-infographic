@@ -47,7 +47,7 @@ evidence_mode: balanced
 ```powershell
 python -m unittest discover -s tests -v
 python scripts/run_acceptance.py --output artifacts/acceptance
-python scripts/verify_install.py
+python scripts/verify_install.py --source skills/medical-infographic
 python skills/medical-infographic/scripts/validate_content.py --spec examples/specs/01-his-architecture.json
 python skills/medical-infographic/scripts/render_svg.py examples/specs/01-his-architecture.json --output-dir examples/generated/his
 ```

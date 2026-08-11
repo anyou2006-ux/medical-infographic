@@ -10,10 +10,10 @@ https://github.com/anyou2006-ux/medical-infographic/tree/main/skills/medical-inf
 ```
 
 ```powershell
-python scripts/verify_install.py
+python scripts/verify_install.py --source skills/medical-infographic
 ```
 
-通过条件：状态为 `pass`，`skill_name` 为 `medical-infographic`，15 个必需文件均存在。
+通过条件：状态为 `pass`，`skill_name` 为 `medical-infographic`，15 个必需文件均存在，`source_match` 为 `true`。
 
 ## 2. 自动验收
 
